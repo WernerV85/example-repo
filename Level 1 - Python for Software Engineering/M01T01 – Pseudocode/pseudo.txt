@@ -1,0 +1,46 @@
+request any positive integer from user
+store input 
+if input is zero
+	calculate highest number stored
+	print highest number
+else continue asking for input from user
+
+
+
+create variable "first_name"
+request input from user to supply their first name store in variable "first_name"
+print "Hello, World" and "first_name"
+
+
+
+create variable named "num_random"
+randomise numbers and store in variable
+print numbers stored in variable "num_random"
+print ave of all stored numbers in variable "num_random"
+
+
+
+create dictionary called "grocery_list"
+request input from user of items to buy
+store items in dictionary
+print dictionary "grocery_list" in alphabetical order
+
+
+
+create variable named "x" 
+request input from user to supply integer value to store in variable "x"
+create variable named "y" 
+request infut from user to supply integet value to store in variable "y"
+
+create function named "S"
+set function "s" to add varible "x" to varible 'y"
+
+create function named "A"
+set function "A" to devide function "S" with 2
+
+create function "P"
+set function "P" to multiply variable "x" and variable "y"
+
+print answer of funtcion "S"
+print answer of function "A"
+print answer of function "P"
