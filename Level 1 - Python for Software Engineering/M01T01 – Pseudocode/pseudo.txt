@@ -1,46 +1,68 @@
-request any positive integer from user
-store input 
-if input is zero
-	calculate highest number stored
-	print highest number
-else continue asking for input from user
+##Scenario 1##
+
+create storage location (dictionary) named "number_data"
+create variable named "highest_num"
+
+request any positive integer via input from user
+if first input is greater than zero store integer in variable "highest_num"
+	while the user input integer is greater than zero
+		compare newly input integer with variable "highest_num"
+		if input integer is greater that variable "highest_num"
+			replace variable "highest_num" with new integer
+		else keep variable "highest_num" as original (first) integer
+	when user input integer is zero
+print variable "highest_num"
 
 
+
+##Scenario 2##
 
 create variable "first_name"
 request input from user to supply their first name store in variable "first_name"
-print "Hello, World" and "first_name"
+print variable "first_name" and include the words "Hello, World" in the same output
 
 
 
-create variable named "num_random"
-randomise numbers and store in variable
-print numbers stored in variable "num_random"
-print ave of all stored numbers in variable "num_random"
+##Scenario 3##
+
+create storage location named "num_ave"
+request integer input from user store integers in storage location
+if no integer is entered and blank is entered
+calculate the arithmetic average of all the integers entered
+print the arithmetic average
 
 
+
+##Scenario 4##
 
 create dictionary called "grocery_list"
-request input from user of items to buy
-store items in dictionary
+request input from user of items to buy 
+store item in dictionary
+
+if input item is already in dictionary
+	request input from user if item was bought if answer is yes
+		remove item from dictionary
+else inform user that item is already in list and will not be added or duplicated to dictionary
 print dictionary "grocery_list" in alphabetical order
 
 
 
+##Scenario 5##
+
 create variable named "x" 
 request input from user to supply integer value to store in variable "x"
 create variable named "y" 
-request infut from user to supply integet value to store in variable "y"
+request input from user to supply integer value to store in variable "y"
 
 create function named "S"
-set function "s" to add varible "x" to varible 'y"
+set function "s" to add variable "x" to variable 'y"
 
 create function named "A"
-set function "A" to devide function "S" with 2
+set function "A" to divide function "S" with 2
 
 create function "P"
 set function "P" to multiply variable "x" and variable "y"
 
-print answer of funtcion "S"
+print answer of function "S"
 print answer of function "A"
 print answer of function "P"
