@@ -13,3 +13,5 @@ print(f"save_sentence.replace(): {save_sentence}")
 #***Print as uppercase**
 save_sentence = save_sentence.upper()
 print(f"save_Sentance.upper(): {save_sentence}")
+
+print(save_sentence[::-1])
