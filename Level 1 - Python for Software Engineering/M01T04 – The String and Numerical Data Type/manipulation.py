@@ -18,6 +18,9 @@ str_manip = str_manip.replace(last_char, "@")
 #printing new sentence with replacement in place
 print( {str_manip} )
 
+#Undo replace script
+str_manip = str_manip.replace{"@", last_char}
+
 #printing the last 3 letters of the sentence
 print(str_manip[len(str_manip):len(str_manip)-4:-1])
 
