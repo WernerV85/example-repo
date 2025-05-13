@@ -14,4 +14,5 @@ print(f"save_sentence.replace(): {save_sentence}")
 save_sentence = save_sentence.upper()
 print(f"save_Sentance.upper(): {save_sentence}")
 
+#printing sentence in reverse
 print(save_sentence[::-1])
