@@ -10,7 +10,7 @@ print(f"The number you selected are {num1} , {num2} and {num3} .")
 
 #define the function of the sum of all three numbers, and printing the result
 cal1 = num1 + num2 + num3
-print(f"The sum of all three numbers are equal to {cal1}.")
+print(f"The sum of all three numbers is equal to {cal1}.")
 
 #Define the second function of subtracting the second number from the first number and printing the result.
 cal2 = num1 - num2
