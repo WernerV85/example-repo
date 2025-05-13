@@ -11,12 +11,12 @@ print(f"Length of sentence is {len(str_manip)} characters")
 #create variable for last character for later use
 last_char = str_manip[-1]
 #print last character
-print(last_char)
+print(f"The last letter of the sentence is {last_char})
 
 #replacing last character with @ through the whole sentence
 str_manip = str_manip.replace(last_char, "@")
 #printing new sentence with replacement in place
-print( {str_manip} )
+print( str_manip )
 
 #Undo replace script
 str_manip = str_manip.replace("@", last_char)
