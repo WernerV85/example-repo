@@ -7,4 +7,4 @@ print(last_char)
 str_manip = str_manip.replace(last_char, "@")
 print(f"str_manip.replace(): {str_manip}")
 
-print(str_manip[last_char:4:-1])
+print(str_manip[1:3:-1])
