@@ -3,4 +3,4 @@ print(f"Length of sentence is {len(str_manip)} characters")
 
 final_char = len(str_manip)
 
-print(str_manip[final_char::1])
+print(str_manip[-1])
