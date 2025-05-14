@@ -14,7 +14,7 @@ print(f"Total time to complete the Triathlon: {total_time} minutes")
 
 #start if statement to set the criteria:
 #first criteria is to calculate if time is between 0 and 100 minutes
-if total_time >= 0 or total_time <= 100:
+if total_time >= 0 and total_time <= 100:
 #if above criteria is true the statement Provincial colours will be printed on screen
     print("Award: Provincial Colours.")
 #second criteria is to check if time is between 101 and 105 minutes
