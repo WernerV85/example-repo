@@ -31,9 +31,9 @@ if user_choice == "INVESTMENT":
 
 elif user_choice == "BOND":
     house_value = float(input("What is the value of the house: "))
-    house_month_interest = float(input('''What is the interest rate (percentage) of the bond
+    house_interest_rate = float(input('''What is the interest rate (percentage) of the bond
     (please only give the value, exclude the % symbol): '''))
-    house_interest_percen = (house_interest_rate / 100) / 12
+    house_month_interest = (house_interest_rate / 100) / 12
     num_months = int(input('''Bond period - Months
     (In how many months will the bond be paid off?): '''))
 
