@@ -37,7 +37,7 @@ elif user_choice == "BOND":
     num_months = int(input('''Bond period - Months
     (In how many months will the bond be paid off?): '''))
 
-    monthly_repay = (house_month_interest * house_value) / (1 - (1 + house_month_interest) ** (-n))
+    monthly_repay = (house_month_interest * house_value) / (1 - (1 + house_month_interest) ** (-num_months))
     round(monthly_repay,2)
     print(f"The monthly Bond repayment is equal to {monthly_repay}!")
 
