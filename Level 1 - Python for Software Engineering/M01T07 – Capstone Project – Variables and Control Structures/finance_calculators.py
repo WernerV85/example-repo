@@ -26,6 +26,6 @@ if user_choice == "INVESTMENT":
         calculate_compound = dep_amount * math.pow((1 + interest_percen), invest_year)
         print(f"The interest you will earn over {invest_year} is equal to {calculate_compound}!")
     else :
-        print("Incorrect selection made, please return to main menu!"):
+        print("Incorrect selection made, please return to main menu!")
 
     
