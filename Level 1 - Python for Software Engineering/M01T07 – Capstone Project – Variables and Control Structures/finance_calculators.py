@@ -38,7 +38,7 @@ elif user_choice == "BOND":
     (In how many months will the bond be paid off?): '''))
 
     monthly_repay = (house_month_interest * house_value) / (1 - (1 + house_month_interest) ** (-num_months))
-    round(monthly_repay,2)
+    monthly_repay = round(monthly_repay,2)
     print(f"The monthly Bond repayment is equal to {monthly_repay}!")
 
 else :
