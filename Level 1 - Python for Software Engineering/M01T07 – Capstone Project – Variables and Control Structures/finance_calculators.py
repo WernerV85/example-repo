@@ -28,6 +28,6 @@ if user_choice == "INVESTMENT":
         calculate_compound = round(calculate_compound,2)
         print(f"The interest you will earn over {invest_year} years is equal to {calculate_compound}!")
     else :
-        print("Incorrect selection made, please return to main menu!")
+        print("Incorrect selection!! Please return to main menu!!")
 
     
