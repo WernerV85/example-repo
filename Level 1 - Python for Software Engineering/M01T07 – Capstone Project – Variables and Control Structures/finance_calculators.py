@@ -41,9 +41,11 @@ if user_choice == "INVESTMENT":
 
     #If statement to calculate Simple investment interest
     if interest == "SIMPLE":
+
         #used calculation as setout in the reading material
             ##HyperionDev, M01T07 – Capstone Project – Variables and Control Structures, page 3, copyright 2025 HyperionDev
         calculate_simple = dep_amount * (1 + interest_percen * invest_year)
+        
         #Used the rounding function to show final result as 2 decimals or cents
             #HyperionDev, 10-006 The String and Numerical Data Types, page 10, copyright 2025 HyperionDev
         calculate_simple = round(calculate_simple,2)
