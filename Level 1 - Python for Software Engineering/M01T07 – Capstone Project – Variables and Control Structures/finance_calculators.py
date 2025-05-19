@@ -23,7 +23,7 @@ if user_choice == "INVESTMENT":
     #Request all inputs from user as instructed
     dep_amount = float(input("Please supply the amount of money being deposited (H$): "))
 
-    interest_rate = float(input('''What is the interest rate (percentage) at which the money is being deposited 
+    interest_rate = float(input('''What is the interest rate (percentage) at which the money is being deposited
     (please only give the value, exclude the % symbol): '''))
 
     #Converting the investement rate to show as a float and not percentage
@@ -48,7 +48,7 @@ if user_choice == "INVESTMENT":
         
         #Used the rounding function to show final result as 2 decimals or cents
             #HyperionDev, 10-006 The String and Numerical Data Types, page 10, copyright 2025 HyperionDev
-        calculate_simple = round(calculate_simple,2)
+        calculate_simple = round(calculate_simple, 2)
 
         #print text to inform user of how much interst will be earned, used H$ as in example in Capstone reading material
             ##HyperionDev, M01T07 – Capstone Project – Variables and Control Structures, page 3, copyright 2025 HyperionDev
@@ -65,7 +65,7 @@ if user_choice == "INVESTMENT":
 
         #Used the rounding function to show final result as 2 decimals or cents
             ##HyperionDev, 10-006 The String and Numerical Data Types, page 10, copyright 2025 HyperionDev
-        calculate_compound = round(calculate_compound,2)
+        calculate_compound = round(calculate_compound, 2)
 
         #print text to inform user of how much interst will be earned, used H$ as in example in Capstone reading material
             ##HyperionDev, M01T07 – Capstone Project – Variables and Control Structures, page 3, copyright 2025 HyperionDev
