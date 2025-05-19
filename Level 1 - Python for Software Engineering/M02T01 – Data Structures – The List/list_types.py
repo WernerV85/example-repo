@@ -6,9 +6,9 @@ friends_names = ["Peter" , "Brain" , "Edd"]
 print(friends_names)
 
 #task 2 - Printing first and last names of friends
-print(friends_names[0])
-print(friends_names[-1])
-print(len(friends_names))
+print(f'First friend : {friends_names[0]}')
+print(f'Last friend : {friends_names[-1]}')
+print(f'Lenght of friend list: {len(friends_names)}')
 
 #task 3 - define new list
 friends_ages = [12 , 25, 50]
