@@ -8,6 +8,6 @@ while num_input > 0:
     num_list +=1
     num_ave = num_input / num_list
     
-    if num_input < 0:
-        print(floar{num_ave})
+    if num_input <= 0:
+        print(float(num_ave))
     
