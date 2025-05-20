@@ -4,7 +4,7 @@ num_input = int(input(f"Please give any number: "))
 while num_input > 0 :
     num_input = int(input(f"Please give any number: "))
     num_input += num_input
-    num_list.append(num_input)
+    num_input.append(num_list)
     if num_input == -1:
         continue
     #print(num_input)
