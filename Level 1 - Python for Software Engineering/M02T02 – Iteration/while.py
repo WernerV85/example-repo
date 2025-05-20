@@ -8,10 +8,7 @@ while num_input > 0:
     num_list +=1
     
     
-    if num_input == -1:
-        continue
-    num_ave = num_input / num_list
-    #print(num_input)
-   # print(num_list)
-    print(num_ave)
+    if num_input <0:
+        num_ave = num_input / num_list
+        print(num_ave)
     
