@@ -9,6 +9,6 @@ while num_input > 0:
     num_ave = num_input / num_list
     
     if num_input < 0:
-        break
+        continue
     print(num_ave)
     
