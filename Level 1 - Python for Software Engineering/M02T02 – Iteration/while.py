@@ -7,8 +7,8 @@ while num_input >= 0:
     num_input = int(input(f"Please give any number: "))
     num_total += num_input
     num_list +=1
-    print(f"The sum of the values are: {num_total}")
-    print(f"The count of the values are: {num_list}")
+    #print(f"The sum of the values are: {num_total}")
+    #print(f"The count of the values are: {num_list}")
     if num_input == -1:
         print(f"The sum of the values are: {num_total}")
         num_ave = num_total / num_list
