@@ -11,3 +11,5 @@ while num_input > 0:
         print(num_input)
         print(num_list)
         print(float(num_ave))
+    else :
+        print("Exit!!")
