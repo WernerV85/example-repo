@@ -1,6 +1,6 @@
-num_input = []
-num_input = int(input(f"Please give any number: "))
-
+num_list = []
+num_list = int(input(f"Please give any number: "))
+num_input = num_list
 while num_input > 0 :
     num_input = int(input(f"Please give any number: "))
     num_input += num_input
