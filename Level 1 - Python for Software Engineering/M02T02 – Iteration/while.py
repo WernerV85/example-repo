@@ -9,7 +9,7 @@ while num_input > 0:
     num_ave = num_input / len(num_list)
     print(num_input)
     print(num_list)
-    print(float(num_ave))
+    print(num_ave)
     if num_input == -1:
         print(num_input)
         print(num_list)
