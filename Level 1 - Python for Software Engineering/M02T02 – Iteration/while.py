@@ -10,5 +10,5 @@ while num_input > 0:
     
     if num_input == -1:
         num_ave = num_input / num_list
-        print(f"Average of the numbers entered is: {float(num_ave)}")
+        print(f"Average of the numbers entered is: {num_ave}")
     
