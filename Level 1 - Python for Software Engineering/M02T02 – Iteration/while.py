@@ -9,5 +9,5 @@ while num_input > 0 :
         break
     print(num_input)
     print(num_list)
-        #num_ave = num_input / len(num_input)
-        #print(num_ave)
+    num_ave = num_input / len(num_list)
+    print(num_ave)
