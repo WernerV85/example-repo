@@ -9,6 +9,7 @@ while num_input > 0:
     
     
     if num_input == -1:
+        print(f"The sum of the values are: {num_input}")
         num_ave = num_input / num_list
         print(f"Average of the numbers entered is: {num_ave}")
     
