@@ -1,5 +1,4 @@
 num_list = []
-num_list = int(input(f"Please give any number: "))
 num_input = 0
 while num_input > 0 :
     num_input = int(input(f"Please give any number: "))
