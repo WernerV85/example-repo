@@ -10,6 +10,8 @@ while num_input >= 0:
     #print(f"The sum of the values are: {num_total}")
     #print(f"The count of the values are: {num_list}")
     if num_input == -1:
+        num_total -= 1
+        num_list -= 1
         print(f"The sum of the values are: {num_total}")
         print(f"The count of the values are: {num_list}")
         num_ave = num_total / num_list
