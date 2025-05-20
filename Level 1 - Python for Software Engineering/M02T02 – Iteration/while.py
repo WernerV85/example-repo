@@ -11,5 +11,5 @@ while num_input > 0:
     if num_input == -1:
         print(num_input)
         print(num_list)
-        print(float(num_ave))
+        print(num_ave)
     
