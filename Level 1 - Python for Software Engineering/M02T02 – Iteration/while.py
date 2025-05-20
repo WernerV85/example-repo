@@ -10,7 +10,7 @@ while num_input > 0:
     
     if num_input == -1:
         break
-    print(num_input)
-    print(num_list)
+    #print(num_input)
+   # print(num_list)
     print(num_ave)
     
