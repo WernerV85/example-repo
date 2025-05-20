@@ -1,4 +1,4 @@
-#num_list = []
+num_input = []
 num_input = int(input(f"Please give any number: "))
 num_ave = num_input / len(num_input)
 while num_input > 0 :
