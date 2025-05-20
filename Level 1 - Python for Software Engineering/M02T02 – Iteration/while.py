@@ -7,7 +7,7 @@ while num_input > 0 :
     num_list.append(num_list)
     if num_input == -1:
         continue
-    #print(num_input)
-    #print(num_list)
-    num_ave = num_input / len(num_list)
-    print(float(num_ave))
+        print(num_input)
+        print(num_list)
+        num_ave = num_input / len(num_list)
+        print(float(num_ave))
