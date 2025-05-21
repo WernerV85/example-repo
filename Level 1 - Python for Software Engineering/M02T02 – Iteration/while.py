@@ -17,6 +17,6 @@ while num_input >= 1:
         print(f"Average of the numbers entered is: {num_ave}")
 
     elif num_input == 0:
-        print(f"Invalid input")
+        print(f"Invalid input!!")
 
     
