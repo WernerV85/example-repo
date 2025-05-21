@@ -1,5 +1,8 @@
 ## Auto grade task - 1
-print(f"Auto-graded task 1")
+print(f'''Auto-graded task 1
+      
+      
+      ''')
 
 # Calculate average of user input number
 
