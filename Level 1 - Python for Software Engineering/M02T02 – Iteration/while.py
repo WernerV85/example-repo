@@ -1,8 +1,15 @@
+## Auto grade task - 1
+print(f"Auto-graded task 1")
+
+# Calculate average of user input number
+
+# Define variables
 num_input = 1
 num_count = 0
 num_total = 0
 
-
+# While loop that request user input as well as checking
+# vadility of the inputs
 while num_input >= 1:
     num_input = int(input(f"Please give any number: "))
     num_total += num_input
