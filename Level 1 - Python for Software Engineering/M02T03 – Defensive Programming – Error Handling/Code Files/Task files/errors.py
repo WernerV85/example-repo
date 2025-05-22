@@ -18,6 +18,7 @@ print(f"I'm {age} years old.")
     # Variables declaring additional years and printing the total years of age
 years_from_now = 3.5  
 #Syntax error - incorrect indentation Logical error - variable set incorrectly as str
+# Logical error - float incorrectly set as int.
 total_years = age + years_from_now  
 #Syntax error - incorrect indentation
 
