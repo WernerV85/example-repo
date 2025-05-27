@@ -13,8 +13,8 @@ print('''
       
 Birthdate: ''')   
 
-with open('Level 1 - Python for Software Engineering\M02T05 – IO Operations\Code Files\Input\Task file\DOB.txt', 'r') as file:
-    for lines in file:
+with open('Level 1 - Python for Software Engineering\M02T05 – IO Operations\Code Files\Input\Task file\DOB.txt', 'r') as d_file1:
+    for lines in d_file1:
         date_list = lines.split(" ")
         date_list = " ".join(date_list[2:])
         print(date_list)
