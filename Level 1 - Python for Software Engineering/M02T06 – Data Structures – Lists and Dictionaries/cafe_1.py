@@ -1,17 +1,17 @@
-menu_item = ["Applepie",
+menu_item = ["Apple pie",
              "Coffee",
              "Tea",
-             "Milktart"]
+             "Milk tart"]
 
-stock_item = {"Applepie" : 3,
+stock_item = {"Apple pie" : 3,
               "Coffee" : 2,
               "Tea" : 5,
-              "Milktart" : 6}
+              "Milk tart" : 6}
 
-price_item = {"Applepie" : 5.99,
+price_item = {"Apple pie" : 5.99,
               "Coffee" : 3.25,
               "Tea" : 10,
-              "Milktart" : 4.50}
+              "Milk tart" : 4.50}
 
 
 total_stock = 0
