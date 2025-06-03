@@ -3,7 +3,7 @@
 # Import built in function random
 import random
 
-# Create dictionairy of joke to randomise
+# Create dictionary of joke to randomize
 # Couldn't think of any joke, so pulled some jokes off internet
 # References listed below:
 #  https://www.rd.com/list/short-jokes/
@@ -12,7 +12,7 @@ import random
 joke_list = ['''What do you call a magic dog?
              
         A Labracadabrador!!!''',
-             '''What's ornage and sounds like a carrot?
+             '''What's orange and sounds like a carrot?
              
         A Parrot!!!''',
              '''What do you call a woman with one leg?
@@ -32,7 +32,7 @@ joke_list = ['''What do you call a magic dog?
         Just in case he got a hole in one!!!''',
              '''Why don't the circus lions eat the clowns?
              
-        Because they tast funny!!!''',
+        Because they taste funny!!!''',
              '''What is fast, loud and crunchy?
              
         A Rocket chip!!!''',
@@ -41,12 +41,12 @@ joke_list = ['''What do you call a magic dog?
         A spelling Bee!!!''',
             '''Why did the teddy bear say no to dessert?
             
-        Becasue he was stuffed!!!''']
+        Because he was stuffed!!!''']
 
 
 
 # Created a joke output variable to print
-# Assigned random choice function to select joke form dictionairy
+# Assigned random choice function to select joke form dictionary
 joke_output = random.choice(joke_list)
 
 # Printing Joke!!!
