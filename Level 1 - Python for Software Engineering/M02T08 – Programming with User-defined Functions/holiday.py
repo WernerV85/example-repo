@@ -3,25 +3,28 @@
 
 def hotel_cost(num_nights, cost = 1500.00):
     hotel_cost_total = num_nights * cost
-    return round(float(hotel_cost_total),3)
+    return float(hotel_cost_total)
 
-def plane_cost(city_flight, flight_rates):
+def plane_cost(city_flight, flight_price):
     if city_flight == 1:
-        flight_cost = 2500
+        flight_price = 2500
     elif city_flight == 2:
-        flight_cost = 4800
+        flight_price = 4800
     elif city_flight == 3:
-        flight_cost = 1900
+        flight_price = 1900
     elif city_flight == 4:
-        flight_cost = 3450
+        flight_price = 3450
+    return(float(flight_price))
                     
-def car_rental(rental_days, rental_cost = 530.50):
+def car_rental(rental_days = 1, rental_cost = 530.50):
     if rental_car == "Y":
         car_rental_total = rental_days * rental_cost
-        return(float(car_rental_total))
+    elif rental_car == "N":
+        car_rental_total = rental_days * 1
+    return(float(car_rental_total))
     
-def holiday_cost(num_nights, city_flights, rental_day):
-    total_holiday_cost = hotel_cost(num_nights) + plane_cost(cities_select, flight_rates) + car_rental(rental_days)
+def holiday_cost(num_nights, city_flight, rental_day):
+    total_holiday_cost = hotel_cost(num_nights) + plane_cost(cities_select, flight_cost) + car_rental(rental_days)
     return(float(total_holiday_cost))
 
 
@@ -42,22 +45,24 @@ if rental_car == "Y":
     rental_days = int(input(f"How many days will you be needing a rental car: "))
 elif rental_car == "N":
     rental_days = 0
-    print(f"No rental car needed!")
+    print(f"No Rental car was selected!")
+
+    
 
 hotel_stay = hotel_cost(num_nights)
-print(f"Your hotel cost is R {hotel_stay}")
+print(f"Your hotel cost is R {hotel_stay:,}0")
 
-flight_rates = 0
-flight_cost = plane_cost(city_flight)
-print(f"Your flight with cost R {flight_cost} (one-way).")
+
+flight_cost = float(plane_cost(city_flight, flight_price = 0))
+print(f"Your flight will cost R {flight_cost:,}0 (one-way).")
 
 car_rental_cost = car_rental(rental_days)
 if rental_car == "Y":
-    print(f"To rent a car for {rental_days} days will cost R {car_rental_cost}")
+    print(f"To rent a car for {rental_days} days will cost R {car_rental_cost:,}0")
 else:
     print("Rental car was not selected")
 
 holiday_total_cost = holiday_cost(num_nights, city_flight, rental_days)
-print(f'''The cost for your trip to {city_flight} for {num_nights} totals:
+print(f'''The cost for your trip to {cities_select[city_flight]} for {num_nights} nights totals:
       
-      R{holiday_total_cost}''')
+                    R {holiday_total_cost:,}0''')
