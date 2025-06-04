@@ -114,6 +114,8 @@ def holiday_cost(num_nights, city_flight, rental_day):
     return(float(total_holiday_cost))
 
 # Printing calculated values of user inputs
+# Added 0 to all Value outputs to make the monetary values look correct
+# Wasn't sure how to create decimal
 hotel_stay = hotel_cost(num_nights)
 print(f'''
 Your hotel cost for {num_nights} nights: 
