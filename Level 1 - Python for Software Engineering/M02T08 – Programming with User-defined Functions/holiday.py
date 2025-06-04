@@ -5,10 +5,10 @@ def hotel_cost(num_nights, cost = 1500.00):
     hotel_cost_total = num_nights * cost
     return round(float(hotel_cost_total),3)
 
-def plane_cost(cities_select, flight_rates):
-    for item, value in cities_select.items():
-        flight_cost = flight_rates[item]
-        return (int(flight_cost[value]))
+def plane_cost(city_flight_ref, flight_rates):
+    for value in flight_rates.values():
+        flight_cost = flight_rates[city_flight_ref]
+        return (float(flight_cost[value]))
                   
 def car_rental(rental_days, rental_cost = 530.50):
     if rental_car == "Y":
@@ -27,11 +27,12 @@ cities_select = {1: "Johannesburg",
                  4: "KwaZulu Natal"}
 city_flight = int(input(f'''Please select you destination by typing the corresponding number
 {cities_select} : '''))
+city_flight_ref = cities_select
 
-flight_rates = {1: 2500.00,
-               2: 4800.00,
-               3: 1900.00,
-               4: 3450.00}
+flight_rates = {"Johannesburg" : 2500,
+               "Cape Town" : 4800,
+               "Bloemfontein" : 1900,
+               "KwaZulu Natal" : 3450}
 
 num_nights = int(input(f"How many nights are you staying in {cities_select[city_flight]}: "))
 
