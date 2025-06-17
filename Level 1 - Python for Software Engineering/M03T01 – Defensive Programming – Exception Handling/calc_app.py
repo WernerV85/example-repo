@@ -30,11 +30,11 @@ for key, value in calculation_select.items():
 function_selection = int(input("Select Calculation you want to perform: "))
 print(f"You selected {calculation_select[function_selection]}.")
 
-#calculation_list = () 
+calculation_list = () 
 
-#with open("./calculation.txt", "a+") as file:
-#    for line in file:
-#        calculation_list.write(f"Your previous calculation:" + "\n")
+with open("./calculation.txt", "a+") as file:
+    for line in file:
+        calculation_list.write(f"Your previous calculation:" + "\n")
 
 while True:
     try:
@@ -43,30 +43,26 @@ while True:
             num2 = int(input("Please enter the second number:"))
             addition_total = additions_input(num1, num2)
             print(f"{num1} + {num2} = {addition_total}")
-            #calculation_list.append(f"{num1} + {num2} = {addition_total} \n")
-            
+            calculation_list.append(f"{num1} + {num2} = {addition_total} \n")
         elif function_selection == 2:
             num1 = int(input("Please enter the first number: "))
             num2 = int(input("Please enter the second number:"))
             subtraction_total = subtraction_input(num1, num2)
             print(f"{num1} - {num2} = {subtraction_total}")
-            #calculation_list.append(f"{num1} - {num2} = {subtraction_total} \n")
-            
+            calculation_list.append(f"{num1} - {num2} = {subtraction_total} \n")
         elif function_selection == 3:
             num1 = int(input("Please enter the first number: "))
             num2 = int(input("Please enter the second number:"))
             multiplication_total = multiplication_input(num1, num2)
             print(f"{num1} * {num2} = {multiplication_total}")
-            #calculation_list.append(f"{num1} * {num2} = {multiplication_total} \n")
-            
+            calculation_list.append(f"{num1} * {num2} = {multiplication_total} \n")   
         elif function_selection == 4:
             num1 = int(input("Please enter the first number: "))
             num2 = int(input("Please enter the second number:"))
             division_total = division_input(num1, num2)
             print(f"{num1} / {num2} = {division_total}")
-            #calculation_list.append(f"{num1} / {num2} = {division_total} \n")
-            
+            calculation_list.append(f"{num1} / {num2} = {division_total} \n") 
         break
-    
+
     except Exception:
         print("Please supply correct calculation option.")
