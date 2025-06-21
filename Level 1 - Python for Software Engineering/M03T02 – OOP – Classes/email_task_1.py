@@ -17,52 +17,37 @@ you implement for each function and method.
 # --- Email Class --- #
 # Create the class, constructor and methods to create a new Email object.
 class Email():
-    def __init__(self, email_address, subject_line, email_content):
+    def __init__(self,email_address, subject_line, email_content):
         self.email_address = email_address
         self.subject_line = subject_line
         self.email_content = email_content
         self.has_been_read = False
 # Initialise the instance variables for each email.
-
-
+    def __str__(self):
+        return f"From: {self.email_address}\nSubject: {self.subject_line}\nContent: {self.email_content}\nRead: {self.has_been_read}"
+    
 # Create the 'mark_as_read()' method to change the 'has_been_read'
 # instance variable for a specific object from False to True.
     def mark_as_read(self):
         self.has_been_read = True
-# Create the __str__() method to return a string representation of the Email object.
-    def __str__(self):
-        return f"From: {self.email_address}\nSubject: {self.subject_line}\nContent: {self.email_content}\nRead: {self.has_been_read}"
 
-# empty variable list to store email objects
-inbox = []
+# Creating en empty variable list to store email objects.
+inbox = [Email]
 
 # --- Functions --- #
 # Build out the required functions for your program.
 
+
 def populate_inbox():
     # Create 3 sample emails and add them to the inbox list.
-    email1 = Email("test_email@test.co.za",
-                   "Test email Subject 1", 
-                   "This is the first email for the task.")
-    inbox.append(email1)
-    email2 = Email("test_email2@test.co.za", 
-                   "Test email Subject 2", 
-                   "This it the second test email for the task.")
-    inbox.append(email2)
-    email3 = Email("test_email3@test.co.za", 
-                   "Test email Subject 3", 
-                   "This is the third test email for the task.")
-    inbox.append(email3)
     pass
 
 
 def list_emails():
-    # Create a function that prints each email's subject line 
+    # Create a function that prints each email's subject line
     # alongside its corresponding index number,
     # regardless of whether the email has been read.
-    for index, email in enumerate(inbox):
-        print(f"{index}: {email.subject_line} - {'Read' if email.has_been_read else 'Unread'}")
-        pass
+    pass
 
 
 def read_email(index):
@@ -70,14 +55,6 @@ def read_email(index):
     # and email_content attributes for the selected email.
     # After displaying these details, use the 'mark_as_read()' method
     # to set its 'has_been_read' instance variable to True.
-    if 0 <= index < len(inbox):
-        email = inbox[index]
-        print(f'''\nFrom: {email.email_address}
-              
-        Subject: {email.subject_line}
-              
-        Content: {email.email_content}\n''')
-        email.mark_as_read() == True
     pass
 
 
@@ -85,11 +62,6 @@ def view_unread_emails():
     # Create a function that displays all unread Email object subject lines
     # along with their corresponding index numbers.
     # The list of displayed emails should update as emails are read.
-    for index, email in enumerate(inbox):
-        if not email.has_been_read:
-            print(f"{index}: {email.subject_line} - Unread")
-        else:
-            print(f"{index}: {email.subject_line} - Read")
     pass
 
 
@@ -117,33 +89,14 @@ while True:
 
     if user_choice == 1:
         # Add logic here to read an email
-        list_emails()
-        email_index = int(input("Enter the index of the email you want to read: "))
-        read_email(email_index)
-        # Call the read_email function with the selected index
-        # This will display the email details and mark it as read.
-        # Call the populate_inbox function to ensure the inbox is populated with sample emails.
-        populate_inbox()
-        list_emails()
-        # Call the list_emails function to display all emails with their subject lines.
-        # This will allow the user to select an email to read.
         pass
 
     elif user_choice == 2:
         # Add logic here to view unread emails
-        view_unread_emails()
-        # Call the view_unread_emails function to display all unread emails.
-        #populate_inbox()
-        # Call the populate_inbox function to ensure the inbox is populated with sample emails.
-        list_emails()
-        # Call the list_emails function to display all emails with their subject lines.
-        # This will allow the user to see which emails are unread.
         pass
 
     elif user_choice == 3:
         # Add logic here to quit application.
-        print("Quitting application. Goodbye!")
-        # Exit the loop and terminate the program.
         pass
 
     else:
