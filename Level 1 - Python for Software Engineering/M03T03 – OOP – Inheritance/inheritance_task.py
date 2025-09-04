@@ -30,9 +30,18 @@ class OOPCourse(Course):
         print("The course ID is: #12345")
 
 
+course_1 = OOPCourse()
+course_1.contact_details()
+course_1.trainer_details()
+course_1.course_id()
+
+
+print(course_1.contact_details)
+
+
 # Example usage:
 # Create an instance of the Course class
-#course = Course()
+course = Course()
 
 # Call the contact_details method to display contact information
-#course.contact_details()
+course.contact_details()
