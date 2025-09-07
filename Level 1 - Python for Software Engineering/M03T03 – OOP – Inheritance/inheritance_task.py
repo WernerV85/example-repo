@@ -29,7 +29,7 @@ class OOPCourse(Course):
     def course_id(Self):
         print("The course ID is: #12345")
 
-
+#Call methods as requested in task
 course_1 = OOPCourse()
 course_1.contact_details()
 course_1.trainer_details()
