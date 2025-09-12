@@ -14,23 +14,20 @@ def minesweep_solve (minesweeper_grid, row, kolom):
     buur_cells = [(-1, -1), (-1, 0), (-1, +1),
                   (0, -1),           (0, +1),
                   (+1, -1), (+1, 0), (+1, +1)]
-
-    #for new_row, new_kolom in buur_cells:
-    #    nuwe_ry, nuwe_kolom = row + new_row, kolom + new_kolom
-
-    
-    #if minesweeper_grid[nuwe_ry][nuwe_kolom] == "#":
-    #            mine_count += 1
     
     
-    for ro in range(buur_cells):
-        row += 1
-        for kol in range(buur_cells):
-            if minesweeper_grid[ro][kol] == "#":
-                mine_count += 1
-                kolom += 1
-    return mine_count
+    for ro in range(row):
+        for kol in range(kol):
+            if minesweeper_grid[ro][kol] == "-":
+                mine_count = 0
+                for new_ro in range(buur_cells):
+                    for new_kol in range(buur_cells):
+                        if new_ro == "#" and new_kol == "#":
+                            continue
+                    nnew_row , nnew_kol = ro + new_ro, kol + new_kol
+                    if 0 <= nnew_row < row and 0 <= nnew_kol < kolom and minesweeper_grid[nnew_row][nnew_kol] == -1:
+                        mine_count += 1
+                minesweeper_grid[ro][kol] = mine_count
 
-
-#print(mine)         
+         
 print(minesweeper_grid)
