@@ -25,8 +25,7 @@ def minesweep_solve (minesweeper_grid, row, kolom):
                         if minesweeper_grid[nnew_row][nnew_kol] == "#":
                             mine_count += 1
                 minesweeper_grid[ro][kol] = mine_count
-
-                print(mine_count)
+    return minesweeper_grid
     
     
 minesweep_solve(minesweeper_grid, 5, 5)
