@@ -28,7 +28,3 @@ for album in albums1:
     print(album)
 
 # Swapping the first and second albums in the list
-albums1[0], albums1[1] = albums1[1], albums1[0]
-print("\nSwapping the first and second albums in the list:") 
-for album in albums1:
-    print(album)
