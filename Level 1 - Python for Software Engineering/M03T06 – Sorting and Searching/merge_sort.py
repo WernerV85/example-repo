@@ -17,4 +17,28 @@ def merge_sort(items):
     while size_of_subsections < items_length:
         # Iterate over the list in steps of size_of_subsections *2
         for i in range(0, items_length, size_of_subsections * 2):
-            
+            # Determine the start and end indices of the two subsections 
+            # to merge
+            first_section_start, first_section_end = i, min(
+                i + size_of_subsections, items_length
+            )
+
+            second_section_start, second_section_end = first_section_end, min(
+                first_section_end + size_of_subsections, items_length
+            )
+
+            # Define the section to merge
+            section = (first_section_start, first_section_end), (
+                second_section_start,
+                second_section_end,
+            )
+
+            # Call the merge function to merge the subsections
+            merge(items, sections, temporary_storage)
+    
+        # Double the size of subsections for the next iteration
+        size_of_subsection *= 2
+    
+    # Return the sorted list
+    return(items)
+        
