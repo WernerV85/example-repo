@@ -133,7 +133,7 @@ while True:
         # Add logic here to view unread emails
         view_unread_emails()
         # Call the view_unread_emails function to display all unread emails.
-        #populate_inbox()
+        populate_inbox()
         # Call the populate_inbox function to ensure the inbox is populated with sample emails.
         list_emails()
         # Call the list_emails function to display all emails with their subject lines.
