@@ -46,10 +46,7 @@ def merge_sort(items):
 def merge(items, sections, temporary_storage):
     # Unpack the sections tuple to get the start and end indices
     # of each section.
-    (first_section_start, first_section_end), (
-        second_section_start,
-        second_section_end,
-    ) = sections
+    (first_section_start, first_section_end), (second_section_start, second_section_end) = sections
     
     # Initialise indices for the two section and temporary storage
     left_index = first_section_start
