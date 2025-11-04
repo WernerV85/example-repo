@@ -5,7 +5,7 @@
 # sort a list of strings from longest to shortest using merge sort algorithm
 
 def merge_sort(items):
-    #get the length of th input list
+    #get the length of the input list
     items_length = len(items)
 
     #Create temporary storage for merging
@@ -46,7 +46,9 @@ def merge_sort(items):
 def merge(items, sections, temporary_storage):
     # Unpack the sections tuple to get the start and end indices
     # of each section.
-    (first_section_start, first_section_end), (second_section_start, second_section_end) = sections
+    (first_section_start, first_section_end), (
+        second_section_start, 
+        second_section_end) = sections
     
     # Initialise indices for the two section and temporary storage
     left_index = first_section_start
@@ -68,7 +70,7 @@ def merge(items, sections, temporary_storage):
             temp_index += 1
 
         # If section 1 still has elements left to merge
-        elif left_index > first_section_end:
+        elif left_index < first_section_end:
             # Copy remaining elements from section 1 to temporary storage
             for i in range(left_index, first_section_end):
                 temporary_storage[temp_index] = items[left_index]
@@ -88,19 +90,28 @@ def merge(items, sections, temporary_storage):
         items[first_section_start + i] = temporary_storage[i]
 
 example_list = ['Hi', 'Hello', 'Hey', 'Hola', 'Bonjour', 'Ciao', 'Namaste', 'Salaam', 'Konnichiwa', 'Zdravstvuyte']
-sorted_list = merge_sort(example_list)
-print("Sorted List:", sorted_list)
+word_length = [(word, len(word)) for word in example_list]
+new_list = []
+new_words = []
+for word, length in word_length:
+    new_list.append(length)
+    sorted_list = merge_sort(new_list) 
+    length == new_list
+    new_words.append(word_length)
+            
+print(new_words)
+print("Sorted List:", sorted_list[::-1])
 
-example_list2 = ['apple', 'orange', 'banana', 'grape', 'kiwi', 'mango', 'peach', 'pear', 'plum', 'cherry']
-sorted_list2 = merge_sort(example_list2)
-print("Sorted List 2:", sorted_list2)
+#example_list2 = ['apple', 'orange', 'banana', 'grape', 'kiwi', 'mango', 'peach', 'pear', 'plum', 'cherry']
+#sorted_list2 = merge_sort(example_list2)
+#print("Sorted List 2:", sorted_list2[::-1])
 
-example_list3 = ['dog', 'cat', 'elephant', 'ant', 'zebra', 'lion', 'tiger', 'bear', 'giraffe', 'monkey']
-sorted_list3 = merge_sort(example_list3)
-print("Sorted List 3:", sorted_list3)
+#example_list3 = ['dog', 'cat', 'elephant', 'ant', 'zebra', 'lion', 'tiger', 'bear', 'giraffe', 'monkey']
+#sorted_list3 = merge_sort(example_list3)
+#print("Sorted List 3:", sorted_list3)
 
 example_list4 = [54, 26, 93, 17, 77, 31, 44, 55, 20]
 sorted_list4 = merge_sort(example_list4)
-print("Sorted List:", sorted_list4)
+print("Sorted List:", sorted_list4[::-1])
 
  
