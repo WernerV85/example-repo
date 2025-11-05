@@ -93,13 +93,17 @@ example_list = ['Hi', 'Hello', 'Hey', 'Hola', 'Bonjour', 'Ciao', 'Namaste', 'Sal
 word_length = [(word, len(word)) for word in example_list]
 new_list = []
 new_words = []
+
 for word, length in word_length:
     new_list.append(length)
     sorted_list = merge_sort(new_list) 
-    length == new_list
-    new_words.append(word_length)
-            
-print(new_words)
+
+for length in word_length:
+    new_words = merge_sort(word_length)
+
+
+print(new_list)          
+print(new_words[::-1])
 print("Sorted List:", sorted_list[::-1])
 
 #example_list2 = ['apple', 'orange', 'banana', 'grape', 'kiwi', 'mango', 'peach', 'pear', 'plum', 'cherry']
