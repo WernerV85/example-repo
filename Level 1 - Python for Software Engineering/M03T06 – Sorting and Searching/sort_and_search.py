@@ -30,21 +30,51 @@ def binary_search(target, items):
 # with this it will be easy to implement the binary search,
 # as it will be easy to find the mid point and search from there with the negatives included
 
+# Define and create list as specified in the task
 sort_list = [27, -3, 4, 5, 35, 2, 1, -40, 7, 18, 9, -1, 16, 100]
 
+# Call the function and printing the results
 new_list = sorted(sort_list)
-print(new_list)
+print(f''' the sorted list in below:
+{new_list}''')
 
-
+# Defining the requested number to be found
 item_to_find = 9
+
+# Calling the function and printing the results
 result = binary_search(item_to_find, new_list)
 if result is not None: 
     print(f"Item {item_to_find} found at index {result}.") 
 else: 
     print(f"Item {item_to_find} not found in the list.")
 
+## https://www.geeksforgeeks.org/python/python-program-for-insertion-sort/
+## @GeeksforGeeks, Sanchhaya Education Private Limited, All rights reserved
+## Insertion Sort
 
+# Defining the function for insertion sort
+def insertion_sort(sorted_list):
+    # Calculating the length of the list to be sorted
+    len_list = len(sorted_list)
 
+    # For loop to run through the list
+    for num1 in range(1, len_list):
+        sort_num = sorted_list[num1]
+        sort_num1 = num1 - 1
+        # while loop to sort the number in order from smallest to largest
+        while sort_num1 >= 0 and sort_num < sorted_list[sort_num1]:
+            sorted_list[sort_num1 + 1] = sorted_list[sort_num1]
+            sort_num1 -= 1
+        sorted_list[sort_num1 + 1] = sort_num
+
+# Calling the function and printing the result
+insertion_sort(sort_list)
+print(f''' The sorted list, using insertion sort:
+{sort_list}''')
+
+# University of Cape Town. (2014). Sorting, Searching and Algorithm Analysis – Object-Oriented Programming in Python 1 documentation. 
+# Retrieved 25 February 2020, from https://python-textbok.readthedocs.io/en/1.0/Sorting_and_Searching_Algorithms.html
+# 03 -013 Sorting and Searching, p 25
 ## Sequential Sort
 
 def sequential_search(target, items):
@@ -55,6 +85,7 @@ def sequential_search(target, items):
         # If the target item is not found, return None. 
     return None  
 
+# Calling the function and printing the result
 result = sequential_search(item_to_find, new_list)
 if result is not None: 
     print(f"Item {item_to_find} found at index {result}.") 

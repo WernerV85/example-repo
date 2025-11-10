@@ -9,7 +9,7 @@ def merge_sort(items):
     items_length = len(items)
 
     #Create temporary storage for merging
-    temporary_storage = [None] * items_length
+    temporary_storage = len(items) // 2
 
     # Initialise the size of the subsections to 1
     size_of_subsections = 1
@@ -54,15 +54,16 @@ def merge(items, sections, temporary_storage):
     left_index = first_section_start
     right_index = second_section_start
     temp_index = 0
+    merge_list = []
 
     # Loop until both section have been fully merged
-    while left_index < first_section_end or right_index < second_section_end:
+    while left_index < len(first_section_end) or right_index < len(second_section_end):
         # Check if both sections still have elements to compare
-        if left_index < first_section_end and right_index < second_section_end:
+        if left_index < len(first_section_end) and right_index < len(second_section_end):
             # Compare elements from both sections
             if items[left_index] < items[right_index]:
                 # Place the smaller element into temporary storage
-                temporary_storage[temp_index] = items[left_index]
+                merge_list.append()
                 left_index += 1
             else: # items[right_index] <= items[left_index]
                 temporary_storage[temp_index] = items[right_index]
@@ -70,9 +71,9 @@ def merge(items, sections, temporary_storage):
             temp_index += 1
 
         # If section 1 still has elements left to merge
-        elif left_index < first_section_end:
+        elif left_index < len(first_section_end):
             # Copy remaining elements from section 1 to temporary storage
-            for i in range(left_index, first_section_end):
+            for i in range(left_index, len(first_section_end)):
                 temporary_storage[temp_index] = items[left_index]
                 left_index += 1
                 temp_index += 1
@@ -80,7 +81,7 @@ def merge(items, sections, temporary_storage):
         # If section 2 still has elements left to merge
         else: # right_index , second_section_end  
             # Copy remaining elements from section 2 to temporary storage
-            for i in range(right_index, second_section_end):
+            for i in range(right_index, len(second_section_end)):
                 temporary_storage[temp_index] = items[right_index]
                 right_index += 1
                 temp_index += 1
@@ -105,6 +106,9 @@ for length in word_length:
 print(new_list)          
 print(new_words[::-1])
 print("Sorted List:", sorted_list[::-1])
+
+merge_sort(example_list)
+print(example_list)
 
 #example_list2 = ['apple', 'orange', 'banana', 'grape', 'kiwi', 'mango', 'peach', 'pear', 'plum', 'cherry']
 #sorted_list2 = merge_sort(example_list2)
