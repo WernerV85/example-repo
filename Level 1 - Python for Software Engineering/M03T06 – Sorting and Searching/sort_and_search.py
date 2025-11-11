@@ -35,18 +35,18 @@ sort_list = [27, -3, 4, 5, 35, 2, 1, -40, 7, 18, 9, -1, 16, 100]
 
 # Call the function and printing the results
 new_list = sorted(sort_list)
-print(f''' the sorted list in below:
+print(f''' The sorted list, using Binary sort:
 {new_list}''')
 
 # Defining the requested number to be found
 item_to_find = 9
 
 # Calling the function and printing the results
-result = binary_search(item_to_find, new_list)
-if result is not None: 
-    print(f"Item {item_to_find} found at index {result}.") 
+found_item = binary_search(item_to_find, new_list)
+if found_item is not None: 
+    print(f"\n Item {item_to_find} found at index {found_item}.") 
 else: 
-    print(f"Item {item_to_find} not found in the list.")
+    print(f"\n Item {item_to_find} not found in the list.")
 
 ## https://www.geeksforgeeks.org/python/python-program-for-insertion-sort/
 ## @GeeksforGeeks, Sanchhaya Education Private Limited, All rights reserved
@@ -69,7 +69,7 @@ def insertion_sort(sorted_list):
 
 # Calling the function and printing the result
 insertion_sort(sort_list)
-print(f''' The sorted list, using insertion sort:
+print(f''' \n The sorted list, using insertion sort:
 {sort_list}''')
 
 # University of Cape Town. (2014). Sorting, Searching and Algorithm Analysis – Object-Oriented Programming in Python 1 documentation. 
@@ -86,10 +86,10 @@ def sequential_search(target, items):
     return None  
 
 # Calling the function and printing the result
-result = sequential_search(item_to_find, new_list)
-if result is not None: 
-    print(f"Item {item_to_find} found at index {result}.") 
+found_item = sequential_search(item_to_find, new_list)
+if found_item is not None: 
+    print(f"\n Item {item_to_find} found at index {found_item}.") 
 else: 
-    print(f"Item {item_to_find} not found in the list.")
+    print(f"\n Item {item_to_find} not found in the list.")
 
 
