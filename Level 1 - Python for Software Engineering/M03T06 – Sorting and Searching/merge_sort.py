@@ -9,7 +9,7 @@ def merge_sort(items):
     items_length = len(items)
 
     #Create temporary storage for merging
-    temporary_storage = len(items)
+    #temporary_storage = len(items)
 
     # Initialise the size of the subsections to 1
     size_of_subsections = len(items) // 2
@@ -81,14 +81,16 @@ def merge(items, sections):
     # Copy sorted elements from temporary storage back to the original list
     for i in range(temp_index):
         items[left_start + i] = merge_list[i]
+    
+    return(merge_list)
 
 example_list = ['Hi', 'Hello', 'Hey', 'Hola', 'Bonjour', 'Ciao', 'Namaste', 'Salaam', 'Konnichiwa', 'Zdravstvuyte']
-word_length = [(word, len(word)) for word in example_list]
-new_list = []
-new_words = []
+#word_length = [(word, len(word)) for word in example_list]
+#new_list = []
+#new_words = []
 
 #for word, length in word_length:
- #   new_list.append(length)
+#    new_list.append(length)
 #    sorted_list = merge_sort(new_list) 
 
 #for length in word_length:
@@ -99,19 +101,19 @@ new_words = []
 #print(new_words[::-1])
 #print("Sorted List:", sorted_list[::-1])
 
-merge_sort(example_list)
-print(example_list[::-1])
+merge_list = merge_sort(example_list)
+print("\n Sorted List:", merge_list[::-1])
 
 example_list2 = ['apple', 'orange', 'banana', 'grape', 'kiwi', 'mango', 'peach', 'pear', 'plum', 'cherry']
 sorted_list2 = merge_sort(example_list2)
-print("Sorted List 2:", sorted_list2[::-1])
+print("\n Sorted List 2:", sorted_list2[::-1])
 
 example_list3 = ['dog', 'cat', 'elephant', 'ant', 'zebra', 'lion', 'tiger', 'bear', 'giraffe', 'monkey']
 sorted_list3 = merge_sort(example_list3)
-print("Sorted List 3:", sorted_list3[::-1])
+print("\n Sorted List 3:", sorted_list3[::-1])
 
 example_list4 = [54, 26, 93, 17, 77, 31, 44, 55, 20]
 sorted_list4 = merge_sort(example_list4)
-print("Sorted List:", sorted_list4[::-1])
+print("\n Sorted List:", sorted_list4[::-1])
 
  
