@@ -13,11 +13,13 @@ class Shoe:
         pass
         
     def get_cost(self):
+        
         shoe_cost = []
         with open('./inventory.txt', 'r+', encoding='utf-8') as inventory_file:
-            lines = inventory_file.readlines()
-            inventory_file.append(shoe_cost)
-        print(shoe_cost)
+            for product, cost in inventory_file:
+                print(product, cost)
+                shoe_cost.append(product, cost)
+                print(shoe_cost)
         pass
     
 
