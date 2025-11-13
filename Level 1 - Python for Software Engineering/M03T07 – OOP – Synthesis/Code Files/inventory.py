@@ -1,19 +1,27 @@
 
 #========The beginning of the class==========
+## Defining Class shoe
 class Shoe:
 
+    ## Initializing attributes for the class
     def __init__(self, country, code, product, cost, quantity):
+        self.country = country
+        self.code = code
+        self.product = product
+        self.cost = cost
+        self.quantity = quantity
         pass
-        '''
-        In this function, you must initialise the following attributes:
-            ● country,
-            ● code,
-            ● product,
-            ● cost, and
-            ● quantity.
-        '''
+        
     def get_cost(self):
+        shoe_cost = []
+        with open('./inventory.txt', 'r+', encoding='utf-8') as inventory_file:
+            lines = inventory_file.readlines()
+            inventory_file.append(shoe_cost)
+        print(shoe_cost)
         pass
+    
+
+    
         '''
         Add the code to return the cost of the shoe in this method.
         '''
@@ -95,8 +103,8 @@ def highest_qty():
     Write code to determine the product with the highest quantity and
     print this shoe as being for sale.
     '''
-
-
+shoe_cost = []
+print(shoe_cost)
 #==========Main Menu=============
 '''
 Create a menu that executes each function above.
