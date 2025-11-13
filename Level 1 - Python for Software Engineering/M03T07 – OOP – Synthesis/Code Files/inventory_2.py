@@ -13,21 +13,50 @@ class Shoe:
         pass
         
     def get_cost(self):
+        # open file inventory.txt
+        # read the cost data from the file associated the product name
+        # append the cost data into the shoe_cost list
+        # return the cost of the shoe 
+
+        shoe_cost = []
+
+        with open('./inventory.txt', 'r+', encoding='utf-8') as inventory_file:
+            for product, cost in inventory_file:
+                product, cost = inventory_file.readline().split(',')
+                product, cost = product.strip(), cost.strip()
+                print(product, cost)
+                shoe_cost.append(product, cost)
+                print(shoe_cost)
         pass
-    
         '''
         Add the code to return the cost of the shoe in this method.
         '''
 
     def get_quantity(self):
+        # open file inventory.txt
+        # read the quantity data from the file associated the product name 
+        # append the quantity data into the shoe_qnt list
+        # return the quantity of the shoe
+        # print(shoe_quantity) for debugging purpose
+        shoe_qnt = []
+
+        with open('./inventory.txt', 'r+', encoding='utf-8') as inventory_file:
+            for product, quantity in inventory_file:
+                print(product, quantity)
+                shoe_qnt.append(product, quantity)
+                print(shoe_qnt)
         pass
         '''
         Add the code to return the quantity of the shoes.
         '''
 
     def __str__(self):
-        pass
-        '''
+        # return a string representation of the shoe object
+        # print for debugging purpose
+            print(f"Shoe(country={self.country}, code={self.code}, product={self.product}, cost={self.cost}, quantity={self.quantity})")
+
+    pass
+    '''
         Add a code to returns a string representation of a class.
         '''
 
@@ -96,8 +125,7 @@ def highest_qty():
     Write code to determine the product with the highest quantity and
     print this shoe as being for sale.
     '''
-shoe_cost = []
-print(shoe_cost)
+
 #==========Main Menu=============
 '''
 Create a menu that executes each function above.
