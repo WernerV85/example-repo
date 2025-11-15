@@ -70,6 +70,21 @@ shoe_list = []
 
 #==========Functions outside the class==============
 def read_shoes_data():
+    # open file inventory.txt
+    # read data from this file
+    # create a shoes object with this data
+    # append this object into the shoes list  
+    # use try-except for error handling
+    # skip the first line using your code
+    with open('./inventory.txt', 'r+', encoding='utf-8') as inventory_file:
+        next(inventory_file)  # Skip the header line
+        for line in inventory_file:
+            try:
+                country, code, product, cost, quantity = line.strip().split(',')
+                shoe = Shoe(country, code, product, float(cost), int(quantity))
+                shoe_list.append(shoe)
+            except ValueError as e:
+                print(f"Error processing line: {line.strip()}. Error: {e}")
     pass
     '''
     This function will open the file inventory.txt
@@ -79,6 +94,16 @@ def read_shoes_data():
     for error handling. Remember to skip the first line using your code.
     '''
 def capture_shoes():
+    # Ask user for input new details on shoe
+    # create a new shoe object with this data
+    # append this object inside the shoe list
+    country = input("Enter the country: ") 
+    code = input("Enter the code: ")
+    product = input("Enter the product: ")
+    cost = float(input("Enter the cost: "))
+    quantity = int(input("Enter the quantity: "))
+    new_shoe = Shoe(country, code, product, cost, quantity)
+    shoe_list.append(new_shoe)
     pass
     '''
     This function will allow a user to capture data
@@ -87,6 +112,10 @@ def capture_shoes():
     '''
 
 def view_all():
+    # Iterate over the shoes list and print the details of the shoes
+    # returned from the __str__ function
+    for shoe in shoe_list:
+        print(shoe)
     pass
     '''
     This function will iterate over the shoes list and
@@ -96,6 +125,29 @@ def view_all():
     '''
 
 def re_stock():
+    # Identify the shoe object with the lowest quantity
+    # Ask the user if they want to add this quantity of shoes and then update it
+    # This quantity should be updated on the file for this shoe
+    # Update the shoe object in the shoe list as well
+    for shoe in shoe_list:
+        if shoe.quantity == min(shoe.quantity for shoe in shoe_list):
+            print(f"Shoe with lowest quantity: {shoe}")
+            add_quantity = int(input("Do you want to add more quantity? Enter the amount to add: "))
+            shoe.quantity += add_quantity
+            print(f"Updated quantity for {shoe.product}: {shoe.quantity}")
+
+            # Update the inventory.txt file with user input quantity
+            with open('./inventory.txt', 'r+', encoding='utf-8') as inventory_file:
+                lines = inventory_file.readlines()
+                inventory_file.seek(0)
+                for line in lines:
+                    if shoe.code in line:
+                        parts = line.strip().split(',')
+                        parts[4] = str(shoe.quantity)  # Update quantity
+                        inventory_file.write(','.join(parts) + '\n')
+                    else:
+                        inventory_file.write(line)
+                inventory_file.truncate()
     pass
     '''
     This function will find the shoe object with the lowest quantity,
@@ -105,6 +157,29 @@ def re_stock():
     '''
 
 def search_shoe():
+    # ask user what they want to search, code or product
+    # search for the shoe from the list using the code or product
+    search_option = input('''Do you want to search by code or product? 
+    1 = code:
+    2 = product: ''')
+    if search_option == '1':
+        code = input("Enter the shoe code to search: ")
+        code2 = code.upper()
+        for shoe in shoe_list:
+            if shoe.code == code2:
+                print(shoe)
+                return
+        print("Shoe with this code not found.")
+    elif search_option == '2':
+        product = input("Enter the shoe product to search: ")
+        product2 = product.lower()
+        for shoe in shoe_list:
+            if shoe.product.lower() == product2():
+                print(shoe)
+                return
+        print("Shoe with this product not found.")
+    else:
+        print("Invalid option selected.")
     pass
     '''
      This function will search for a shoe from the list
@@ -112,6 +187,11 @@ def search_shoe():
     '''
 
 def value_per_item():
+    # Iterate over the shoes list and calculate the total value for each item
+    # Print this information on the console for all the shoes
+    for shoe in shoe_list:
+        total_value = shoe.cost() * shoe.quantity()
+        print(f"Total value for {shoe.product} (Code: {shoe.code}): {total_value}")
     pass
     '''
     This function will calculate the total value for each item.
@@ -120,6 +200,10 @@ def value_per_item():
     '''
 
 def highest_qty():
+    # Calculate the shoe with the highest quantity
+    # Print this shoe as being for sale
+    highest_shoe = max(shoe_list, key=lambda shoe: shoe.quantity)
+    print(f"Shoe with highest quantity for sale: {highest_shoe}")
     pass
     '''
     Write code to determine the product with the highest quantity and
@@ -127,6 +211,38 @@ def highest_qty():
     '''
 
 #==========Main Menu=============
+# Creating a menu that executes each function above.
+read_shoes_data()
+while True:
+    print('''
+    Shoe Inventory Management System
+    1. Capture Shoes
+    2. View All Shoes
+    3. Re-stock Shoes
+    4. Search Shoe
+    5. Calculate Value per Item
+    6. Show Highest Quantity Shoe
+    7. Exit
+    ''')
+    choice = input("Enter your choice (1-7): ")
+    
+    if choice == '1':
+        capture_shoes()
+    elif choice == '2':
+        view_all()
+    elif choice == '3':
+        re_stock()
+    elif choice == '4':
+        search_shoe()
+    elif choice == '5':
+        value_per_item()
+    elif choice == '6':
+        highest_qty()
+    elif choice == '7':
+        print("Exiting the program.")
+        break
+    else:
+        print("Invalid choice. Please select a valid option.")
 '''
 Create a menu that executes each function above.
 This menu should be inside the while loop. Be creative!
