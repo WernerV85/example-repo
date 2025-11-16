@@ -53,8 +53,11 @@ class Shoe:
     def __str__(self):
         # return a string representation of the shoe object
         # print for debugging purpose
-            print(f"Shoe(country={self.country}, code={self.code}, product={self.product}, cost={self.cost}, quantity={self.quantity})")
-
+        #print(f"Shoe(country={self.country}, code={self.code}, product={self.product}, cost={self.cost}, quantity={str(self.quantity)})")
+        from tabulate import tabulate
+        return tabulate([[self.country, self.code, self.product, self.cost, self.quantity]],
+                        headers=["Country", "Code", "Product", "Cost", "Quantity"], tablefmt="grid")
+        
     pass
     '''
         Add a code to returns a string representation of a class.
@@ -107,7 +110,8 @@ def capture_shoes():
     shoe_list.append(new_shoe)
     with open('Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt', 'a', encoding='utf-8') as inventory_file:
         inventory_file.write(f"\n{country},{code},{product},{cost},{quantity}")
-    print(shoe_list)    
+    # test print object added
+    # print(shoe_list)    
     pass
     '''
     This function will allow a user to capture data
@@ -120,7 +124,7 @@ def view_all():
     # return data using tabulate module
     
     from tabulate import tabulate
-
+    
     table = []
     headers = ["Country", "Code", "Product", "Cost", "Quantity"]
     for shoe in shoe_list:
@@ -141,7 +145,7 @@ def re_stock():
     # Update the shoe object in the shoe list as well
     for shoe in shoe_list:
         if shoe.quantity == min(shoe.quantity for shoe in shoe_list):
-            print(f"Shoe with lowest quantity: {shoe}")
+            print(f"Shoe with lowest quantity: {str(shoe)}")
             add_quantity = int(input("Do you want to add more quantity? Enter the amount to add: "))
             shoe.quantity += add_quantity
             print(f"Updated quantity for {shoe.product}: {shoe.quantity}")
@@ -171,13 +175,14 @@ def search_shoe():
     # search for the shoe from the list using the code or product
     search_option = input('''Do you want to search by code or product? 
     1 = code:
-    2 = product: ''')
+    2 = product: 
+    Please enter you choice here:''')
     if search_option == '1':
         code = input("Enter the shoe code to search: ")
         code2 = code.upper()
         for shoe in shoe_list:
             if shoe.code == code2:
-                print(shoe)
+                print(str(shoe))
                 return
         print("Shoe with this code not found.")
     elif search_option == '2':
@@ -185,7 +190,7 @@ def search_shoe():
         product2 = product.lower()
         for shoe in shoe_list:
             if shoe.product.lower() == product2():
-                print(shoe)
+                print(str(shoe))
                 return
         print("Shoe with this product not found.")
     else:
@@ -200,7 +205,9 @@ def value_per_item():
     # Iterate over the shoes list and calculate the total value for each item
     # Print this information on the console for all the shoes
     for shoe in shoe_list:
-        total_value = shoe.cost() * shoe.quantity()
+        cost1 = shoe.get_cost()
+        quantity1 = shoe.get_quantity()
+        total_value = int(cost1) * int(quantity1)
         print(f"Total value for {shoe.product} (Code: {shoe.code}): {total_value}")
     pass
     '''
@@ -213,7 +220,7 @@ def highest_qty():
     # Calculate the shoe with the highest quantity
     # Print this shoe as being for sale
     highest_shoe = max(shoe_list, key=lambda shoe: shoe.quantity)
-    print(f"Shoe with highest quantity for sale: {highest_shoe}")
+    print(f"Shoe with highest quantity for sale: {str(highest_shoe)}")
     pass
     '''
     Write code to determine the product with the highest quantity and
