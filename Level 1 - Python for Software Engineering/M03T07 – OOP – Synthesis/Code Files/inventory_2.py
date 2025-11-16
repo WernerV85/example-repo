@@ -129,7 +129,7 @@ def view_all():
     headers = ["Country", "Code", "Product", "Cost", "Quantity"]
     for shoe in shoe_list:
         table.append([shoe.country, shoe.code, shoe.product, shoe.cost, shoe.quantity])
-    print(tabulate(table, headers, tablegrid="grid"))
+    print(tabulate(table, headers, tablefmt="grid"))
     pass
     '''
     This function will iterate over the shoes list and
@@ -140,16 +140,24 @@ def view_all():
 
 def re_stock():
     # Identify the shoe object with the lowest quantity
-    # Ask the user if they want to add this quantity of shoes and then update it
+    # request if user want to add a quantity to shoe
+    # Ask the user quantity of shoes and then update it
     # This quantity should be updated on the file for this shoe
     # Update the shoe object in the shoe list as well
     for shoe in shoe_list:
         if shoe.quantity == min(shoe.quantity for shoe in shoe_list):
             print(f"Shoe with lowest quantity: {str(shoe)}")
-            add_quantity = int(input("Do you want to add more quantity? Enter the amount to add: "))
-            shoe.quantity += add_quantity
-            print(f"Updated quantity for {shoe.product}: {shoe.quantity}")
-
+            
+            first_request = input("Do you want to add more quantity? Yes/No:")
+            if first_request.lower() != 'no':
+                print("No quantity added.")
+                # If option is 'no' return to fist menu
+                pass
+            elif first_request.lower() == 'yes':
+                add_quantity = int(input("Enter the quantity to add: "))
+                shoe.quantity += add_quantity
+                print(f"Updated quantity for {shoe.product}: {shoe.quantity}")
+                pass
             # Update the inventory.txt file with user input quantity
             with open('Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt', 'r+', encoding='utf-8') as inventory_file:
                 lines = inventory_file.readlines()
@@ -204,11 +212,20 @@ def search_shoe():
 def value_per_item():
     # Iterate over the shoes list and calculate the total value for each item
     # Print this information on the console for all the shoes
+    #value_table = []
+    #headers = ["Product", "Code", "Total Value"]
+    
+    #from tabulate import tabulate
+    
+    #for shoe in shoe_list:
+    #    total_value = shoe.cost * shoe.quantity
+    #    from tabulate import tabulate
+    #    print(tabulate([[shoe.product, shoe.code, total_value]],
+    #                    headers=["Product", "Code","Total Value"], tablefmt="grid"))
+    
     for shoe in shoe_list:
-        cost1 = shoe.get_cost()
-        quantity1 = shoe.get_quantity()
-        total_value = int(cost1) * int(quantity1)
-        print(f"Total value for {shoe.product} (Code: {shoe.code}): {total_value}")
+        total_value = shoe.cost * shoe.quantity    
+        print(f"\n Total value for {shoe.product} (Code: {shoe.code}): ${total_value:.2f}")
     pass
     '''
     This function will calculate the total value for each item.
