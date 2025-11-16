@@ -20,7 +20,7 @@ class Shoe:
 
         shoe_cost = []
 
-        with open('./inventory.txt', 'r+', encoding='utf-8') as inventory_file:
+        with open('Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt', 'r+', encoding='utf-8') as inventory_file:
             for product, cost in inventory_file:
                 product, cost = inventory_file.readline().split(',')
                 product, cost = product.strip(), cost.strip()
@@ -40,7 +40,7 @@ class Shoe:
         # print(shoe_quantity) for debugging purpose
         shoe_qnt = []
 
-        with open('./inventory.txt', 'r+', encoding='utf-8') as inventory_file:
+        with open('Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt', 'r+', encoding='utf-8') as inventory_file:
             for product, quantity in inventory_file:
                 print(product, quantity)
                 shoe_qnt.append(product, quantity)
@@ -76,7 +76,7 @@ def read_shoes_data():
     # append this object into the shoes list  
     # use try-except for error handling
     # skip the first line using your code
-    with open('./inventory.txt', 'r+', encoding='utf-8') as inventory_file:
+    with open('Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt', 'r+', encoding='utf-8') as inventory_file:
         next(inventory_file)  # Skip the header line
         for line in inventory_file:
             try:
@@ -113,9 +113,15 @@ def capture_shoes():
 
 def view_all():
     # Iterate over the shoes list and print the details of the shoes
-    # returned from the __str__ function
+    # return data using tabulate module
+    
+    from tabulate import tabulate
+
+    table = []
+    headers = ["Country", "Code", "Product", "Cost", "Quantity"]
     for shoe in shoe_list:
-        print(shoe)
+        table.append([shoe.country, shoe.code, shoe.product, shoe.cost, shoe.quantity])
+    print(tabulate(table, headers, tablegrid="grid"))
     pass
     '''
     This function will iterate over the shoes list and
@@ -137,7 +143,7 @@ def re_stock():
             print(f"Updated quantity for {shoe.product}: {shoe.quantity}")
 
             # Update the inventory.txt file with user input quantity
-            with open('./inventory.txt', 'r+', encoding='utf-8') as inventory_file:
+            with open('Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt', 'r+', encoding='utf-8') as inventory_file:
                 lines = inventory_file.readlines()
                 inventory_file.seek(0)
                 for line in lines:
