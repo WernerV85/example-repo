@@ -97,6 +97,7 @@ def capture_shoes():
     # Ask user for input new details on shoe
     # create a new shoe object with this data
     # append this object inside the shoe list
+    # append to txt file inventory.txt
     country = input("Enter the country: ") 
     code = input("Enter the code: ")
     product = input("Enter the product: ")
@@ -104,6 +105,9 @@ def capture_shoes():
     quantity = int(input("Enter the quantity: "))
     new_shoe = Shoe(country, code, product, cost, quantity)
     shoe_list.append(new_shoe)
+    with open('Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt', 'a', encoding='utf-8') as inventory_file:
+        inventory_file.write(f"\n{country},{code},{product},{cost},{quantity}")
+    print(shoe_list)    
     pass
     '''
     This function will allow a user to capture data
