@@ -1,8 +1,13 @@
+'''OOP Synthesis - Task Inventory
+Algorithm populated to structure Supplies
+Populated function as stated in task document'''
+
+## Inventory calculator using menu to give user information needed.
 
 #========The beginning of the class==========
-## Defining Class shoe
-class Shoe:
 
+# Declare class shoes, with attributes found in inventory.txt
+class Shoe:
     ## Initializing attributes for the class
     def __init__(self, country, code, product, cost, quantity):
         self.country = country
@@ -13,13 +18,14 @@ class Shoe:
         pass
         
     def get_cost(self):
+        # create empty list shoe_cot for printing purpose
         # open file inventory.txt
-        # read the cost data from the file associated the product name
+        # read the cost data from inventory.txt file using the product name as reference the product name
         # append the cost data into the shoe_cost list
         # return the cost of the shoe 
 
         shoe_cost = []
-
+        
         with open('Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt', 'r+', encoding='utf-8') as inventory_file:
             for product, cost in inventory_file:
                 product, cost = inventory_file.readline().split(',')
@@ -33,11 +39,13 @@ class Shoe:
         '''
 
     def get_quantity(self):
+        # creating empty list shoe quantity for printing purpose
         # open file inventory.txt
-        # read the quantity data from the file associated the product name 
+        # read the quantity data from Inventory.txt using the product name as reference.
         # append the quantity data into the shoe_qnt list
         # return the quantity of the shoe
         # print(shoe_quantity) for debugging purpose
+        
         shoe_qnt = []
 
         with open('Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt', 'r+', encoding='utf-8') as inventory_file:
@@ -52,8 +60,10 @@ class Shoe:
 
     def __str__(self):
         # return a string representation of the shoe object
-        # print for debugging purpose
+        
+        
         #print(f"Shoe(country={self.country}, code={self.code}, product={self.product}, cost={self.cost}, quantity={str(self.quantity)})")
+        
         from tabulate import tabulate
         return tabulate([[self.country, self.code, self.product, self.cost, self.quantity]],
                         headers=["Country", "Code", "Product", "Cost", "Quantity"], tablefmt="grid")
