@@ -1,8 +1,15 @@
+'''OOP Synthesis - Task Inventory
+Algorithm populated to structure Supplied -
+Populated function as stated in task document'''
+
+## Inventory calculator using menu to give user information needed.
 
 #========The beginning of the class==========
-## Defining Class shoe
-class Shoe:
 
+# Declare class shoes, with attributes found in inventory.txt
+
+class Shoe:
+    
     ## Initializing attributes for the class
     def __init__(self, country, code, product, cost, quantity):
         self.country = country
@@ -13,28 +20,69 @@ class Shoe:
         pass
         
     def get_cost(self):
-        shoe_cost = []
-        with open('./inventory.txt', 'r+', encoding='utf-8') as inventory_file:
-            lines = inventory_file.readlines()
-            inventory_file.append(shoe_cost)
-        print(shoe_cost)
-        pass
-    
+        # create empty list shoe_cost for printing purposes
+        # open file inventory.txt
+        # read the cost data from inventory.txt file 
+        # using the product name as reference
+        # append the cost data into the shoe_cost list
+        # return the cost of the shoes
 
-    
+        shoe_cost = []
+        
+        ## I am not able to set the file path other than below, 
+        ## I have tried .\inventory.txt but it gives me an error
+        with open(
+            'Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt',
+                'r+', encoding='utf-8') as inventory_file:
+            
+            for product, cost in inventory_file:
+                product, cost = inventory_file.readline().split(',')
+                product, cost = product.strip(), cost.strip()
+                print(product, cost)
+                shoe_cost.append(product, cost)
+                print(shoe_cost)
+        pass
         '''
         Add the code to return the cost of the shoe in this method.
         '''
 
     def get_quantity(self):
+        # creating empty list shoe quantity for printing purpose
+        # open file inventory.txt
+        # read the quantity data from Inventory.txt 
+        # using the product name as reference.
+        # append the quantity data into the shoe_qnt list
+        # return the quantity of the shoes
+        
+               
+        shoe_qnt = []
+        
+        ## I am not able to set the file path other that below, 
+        ## I have tried .\inventory.txt but it gives me an error
+        with open(
+            'Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt',
+            'r+', encoding='utf-8') as inventory_file:
+            
+            for product, quantity in inventory_file:
+                print(product, quantity)
+                shoe_qnt.append(product, quantity)
+                print(shoe_qnt)
         pass
         '''
         Add the code to return the quantity of the shoes.
         '''
 
     def __str__(self):
-        pass
-        '''
+        
+        # Returning a string (table) to represent the class Shoe        
+        from tabulate import tabulate
+        return tabulate([[
+            self.country, self.code, self.product, self.cost, self.quantity]],
+                        headers=["Country", "Code", "Product",
+                                 "Cost", "Quantity"], tablefmt="grid")
+        
+    pass
+    '''
         Add a code to returns a string representation of a class.
         '''
 
@@ -45,9 +93,29 @@ The list will be used to store a list of objects of shoes.
 '''
 shoe_list = []
 
-
 #==========Functions outside the class==============
+
 def read_shoes_data():
+    # open file inventory.txt, read data from this file
+    # create a shoes object
+    # append this object into the Class Shoe  
+    # use try-except for error handling
+    
+    ## I am not able to set the file path other than below, 
+    ## I have tried .\inventory.txt but it gives me an error
+    with open(
+        'Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt',
+        'r+', encoding='utf-8') as inventory_file:
+        
+        next(inventory_file)  # Skip the header line
+        for line in inventory_file:
+            try:
+                country, code, product, cost, quantity = line.strip().split(',')
+                shoe = Shoe(country, code, product, float(cost), int(quantity))
+                shoe_list.append(shoe)
+            except ValueError as error_read:
+                print(
+                    f"Error processing line: {line.strip()}. Error: {error_read}")
     pass
     '''
     This function will open the file inventory.txt
@@ -57,6 +125,28 @@ def read_shoes_data():
     for error handling. Remember to skip the first line using your code.
     '''
 def capture_shoes():
+    # Ask user for details on  new shoe to add
+    # create a new shoe object with data provided
+    # append this object inside the shoe list
+    # append to txt file inventory.txt
+    
+    country = input("Please enter the country: ") 
+    code = input("Please enter the  stock code: ")
+    product = input("Enter the product name: ")
+    cost = float(input("Enter the item price: "))
+    quantity = int(input("Enter the stock quantity: "))
+    new_shoe = Shoe(country, code, product, cost, quantity)
+    shoe_list.append(new_shoe)
+    
+    ## I am not able to set the file path other than below, 
+    ## I have tried .\inventory.txt but it gives me an error
+    with open(
+        'Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt', 
+        'a', encoding='utf-8') as inventory_file:
+        
+        inventory_file.write(
+            f"\n{country},{code},{product},{cost},{quantity}")
+       
     pass
     '''
     This function will allow a user to capture data
@@ -65,6 +155,17 @@ def capture_shoes():
     '''
 
 def view_all():
+    # Iterate over the shoes list and print the details of the shoes
+    # return data using tabulate module
+    
+    from tabulate import tabulate
+    
+    table = []
+    headers = ["Country", "Code", "Product", "Cost", "Quantity"]
+    for shoe in shoe_list:
+        table.append([shoe.country, shoe.code, shoe.product,
+                      shoe.cost, shoe.quantity])
+    print(tabulate(table, headers, tablefmt="grid"))
     pass
     '''
     This function will iterate over the shoes list and
@@ -74,6 +175,46 @@ def view_all():
     '''
 
 def re_stock():
+    # Identify the shoe object with the lowest quantity
+    # request if user want to add a quantity to shoe
+    # Ask the user quantity of shoes and then update it
+    # Update the shoe object in the shoe list as well
+    
+    for shoe in shoe_list:
+        if shoe.quantity == min(shoe.quantity for shoe in shoe_list):
+            print(f"Shoe with lowest quantity: {str(shoe)}")
+            lowest_qnt_shoe = min(shoe.quantity for shoe in shoe_list)
+            first_request = input(
+                f"\n Do you want to add more quantity? Yes/No:")
+            if first_request.lower() == 'no':
+                print("\n No quantity added.")
+                # If option is 'no' return to main menu
+                
+            elif first_request.lower() == 'yes':
+                add_quantity = int(input("Enter the quantity to add: "))
+                shoe.quantity += add_quantity
+                print(f"\nUpdated quantity {shoe.product}: {shoe.quantity}")
+                print(str(lowest_qnt_shoe))
+                pass
+           
+            # Update the inventory.txt file with user input quantity
+            ## I am not able to set the file path other than below, 
+            ## I have tried .\inventory.txt but it gives me an error
+            with open(
+                'Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt',
+                'r+', encoding='utf-8') as inventory_file:
+                
+                lines = inventory_file.readlines()
+                inventory_file.seek(0)
+                for line in lines:
+                    if shoe.code in line:
+                        parts = line.strip().split(',')
+                        parts[4] = str(shoe.quantity)  # Update quantity
+                        inventory_file.write(','.join(parts) + '\n')
+                    else:
+                        inventory_file.write(line)
+                inventory_file.truncate()
+                
     pass
     '''
     This function will find the shoe object with the lowest quantity,
@@ -83,6 +224,34 @@ def re_stock():
     '''
 
 def search_shoe():
+    # ask user what they want to search, code or product (product Additional)
+    # search for the shoe from the list using the code or product
+    # returning the search product details
+    
+    search_option = input('''Do you want to search by code or product? 
+    1 = Code:
+    2 = Product: 
+    Please enter you choice here: ''')
+    
+    if search_option == '1':
+        code = input("Enter the shoe code to search: ")
+        code2 = code.upper()
+        for shoe in shoe_list:
+            if shoe.code == code2:
+                print(str(shoe))
+                return
+        print("Shoe with this code not found.")
+    
+    elif search_option == '2':
+        product = input("Enter the shoe product to search: ")
+        
+        for shoe in shoe_list:
+            if shoe.product.lower() == product.lower():
+                print(str(shoe))
+                return 
+            print("Shoe with this product not found.")
+    else:
+        print("Invalid option selected.")
     pass
     '''
      This function will search for a shoe from the list
@@ -90,6 +259,13 @@ def search_shoe():
     '''
 
 def value_per_item():
+    # Iterate over the shoes list and calculate the total value for each item
+    # Print this information on the console for all the shoes in table format
+        
+    for shoe in shoe_list:
+        total_value = shoe.cost * shoe.quantity    
+        print(f'''\n Stock Value {shoe.product} ({shoe.code}): 
+                ${total_value:.2f}''')
     pass
     '''
     This function will calculate the total value for each item.
@@ -98,14 +274,54 @@ def value_per_item():
     '''
 
 def highest_qty():
+    # Calculate the shoe with the highest quantity
+    # Print this shoe as being for sale
+    
+    highest_shoe = max(shoe_list, key=lambda shoe: shoe.quantity)
+    print(f'''Shoe with highest quantity: {str(highest_shoe)}. 
+          Please put {highest_shoe.product} on sale!''')
     pass
+
     '''
     Write code to determine the product with the highest quantity and
     print this shoe as being for sale.
     '''
-shoe_cost = []
-print(shoe_cost)
+
 #==========Main Menu=============
+# Creating a menu that executes each function above.
+# Changed the menu to have more of a flow to selections
+
+read_shoes_data()
+while True:
+    print('''
+    Shoe Inventory Management System
+        1. Shoe Inventory (all)
+        2. Inventory Cost
+        3. Search Product
+        4. Adding Inventory
+        5. Adding Stock
+        6. Identify Sale Item
+        7. Exit
+    ''')
+    choice = input("Please select operation to complete (1-7): ")
+    
+    if choice == '1':
+        view_all()
+    elif choice == '2':
+        value_per_item()
+    elif choice == '3':
+        search_shoe()
+    elif choice == '4':
+        capture_shoes()
+    elif choice == '5':
+        re_stock()
+    elif choice == '6':
+        highest_qty()
+    elif choice == '7':
+        print("Exiting the program.")
+        break
+    else:
+        print("Invalid option. Please select a option on the list.")
 '''
 Create a menu that executes each function above.
 This menu should be inside the while loop. Be creative!
