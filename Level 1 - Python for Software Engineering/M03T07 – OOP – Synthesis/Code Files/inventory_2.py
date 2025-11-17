@@ -86,8 +86,8 @@ def read_shoes_data():
                 country, code, product, cost, quantity = line.strip().split(',')
                 shoe = Shoe(country, code, product, float(cost), int(quantity))
                 shoe_list.append(shoe)
-            except ValueError as e:
-                print(f"Error processing line: {line.strip()}. Error: {e}")
+            except ValueError as error_read:
+                print(f"Error processing line: {line.strip()}. Error: {error_read}")
     pass
     '''
     This function will open the file inventory.txt
@@ -101,11 +101,11 @@ def capture_shoes():
     # create a new shoe object with this data
     # append this object inside the shoe list
     # append to txt file inventory.txt
-    country = input("Enter the country: ") 
-    code = input("Enter the code: ")
-    product = input("Enter the product: ")
-    cost = float(input("Enter the cost: "))
-    quantity = int(input("Enter the quantity: "))
+    country = input("Please enter the country: ") 
+    code = input("Please enter the  stock code: ")
+    product = input("Enter the product name: ")
+    cost = float(input("Enter the item price: "))
+    quantity = int(input("Enter the stock quantity: "))
     new_shoe = Shoe(country, code, product, cost, quantity)
     shoe_list.append(new_shoe)
     with open('Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt', 'a', encoding='utf-8') as inventory_file:
@@ -147,16 +147,17 @@ def re_stock():
     for shoe in shoe_list:
         if shoe.quantity == min(shoe.quantity for shoe in shoe_list):
             print(f"Shoe with lowest quantity: {str(shoe)}")
-            
-            first_request = input("Do you want to add more quantity? Yes/No:")
-            if first_request.lower() != 'no':
-                print("No quantity added.")
-                # If option is 'no' return to fist menu
-                pass
+            lowest_qnt_shoe = min(shoe.quantity for shoe in shoe_list)
+            first_request = input(f"\n Do you want to add more quantity? Yes/No:")
+            if first_request.lower() == 'no':
+                print("\n No quantity added.")
+                # If option is 'no' return to main menu
+                
             elif first_request.lower() == 'yes':
                 add_quantity = int(input("Enter the quantity to add: "))
                 shoe.quantity += add_quantity
-                print(f"Updated quantity for {shoe.product}: {shoe.quantity}")
+                print(f"\n Updated quantity for {shoe.product}: {shoe.quantity}")
+                print(str(lowest_qnt_shoe))
                 pass
             # Update the inventory.txt file with user input quantity
             with open('Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt', 'r+', encoding='utf-8') as inventory_file:
@@ -170,6 +171,7 @@ def re_stock():
                     else:
                         inventory_file.write(line)
                 inventory_file.truncate()
+                
     pass
     '''
     This function will find the shoe object with the lowest quantity,
@@ -252,13 +254,13 @@ while True:
     Shoe Inventory Management System
     1. Capture Shoes
     2. View All Shoes
-    3. Re-stock Shoes
-    4. Search Shoe
-    5. Calculate Value per Item
-    6. Show Highest Quantity Shoe
+    3. Re-stock
+    4. Search (Code/Product)
+    5. Stock cost calculation
+    6. Sale item (highest quantity)
     7. Exit
     ''')
-    choice = input("Enter your choice (1-7): ")
+    choice = input("Please enter option (1-7): ")
     
     if choice == '1':
         capture_shoes()
@@ -276,7 +278,7 @@ while True:
         print("Exiting the program.")
         break
     else:
-        print("Invalid choice. Please select a valid option.")
+        print("Invalid input. Please select a valid option.")
 '''
 Create a menu that executes each function above.
 This menu should be inside the while loop. Be creative!
