@@ -89,13 +89,15 @@ def read_shoes_data():
     # Append shoe object into the shoe list
     # Using try-except for error handling
     # Append to shoe_list[]
+    #C:\Users\WernerV\Documents\GitHub\WV25050018135\Level 1 - Python for Software Engineering\M03T07 – OOP – Synthesis\Code Files\inventory.txt
+    #Level 1 - Python for Software Engineering\M03T07 – OOP – Synthesis\Code Files\inventory.txt
 
     try:
-        with open('./inventory.txt', 'r', encoding='utf-8') as inventory_file:
+        with open('./Level 1 - Python for Software Engineering/M03T07 – OOP – Synthesis/Code Files/inventory.txt', 'r', encoding='utf-8') as inventory_file:
             next(inventory_file)  # Skip the header line.
-            for lines in inventory_file:
-                country, code, product, cost, quantity = lines.strip()
-                country, code, product, cost, quantity = lines.split(',')
+            for line in inventory_file:
+                country, code, product, cost, quantity = line.strip()
+                country, code, product, cost, quantity = line.split(',')
                 shoe = Shoe(country, code, product, float(cost), int(quantity))
                 shoe_list.append(shoe)
     except FileNotFoundError:
@@ -107,7 +109,7 @@ def read_shoes_data():
 
 # Defining update function to write back to inventory.txt
 def update():
-    with open('./inventory.txt', 'w', encoding='utf-8') as inventory_file:
+    with open('./Level 1 - Python for Software Engineering/M03T07 – OOP – Synthesis/Code Files/inventory.txt', 'w', encoding='utf-8') as inventory_file:
         inventory_file.write("Country,Code,Product,Cost,Quantity\n")
         for shoe in shoe_list:
             inventory_file.write(f'''
