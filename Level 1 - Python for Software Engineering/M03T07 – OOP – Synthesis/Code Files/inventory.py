@@ -57,8 +57,8 @@ class Shoe:
         '''
 
     def __str__(self):
-        # Returning a string (table) to represent the shoe_list object
-        return (f'''\nShoe Details:\n
+        # Returning a string to represent the shoe_list object
+        return (f'''\nStock Information:\n
         Country:    {self.country}
         Code:       {self.code}
         Product:    {self.product}
@@ -93,11 +93,10 @@ def read_shoes_data():
     #Level 1 - Python for Software Engineering\M03T07 – OOP – Synthesis\Code Files\inventory.txt
 
     try:
-        with open('./Level 1 - Python for Software Engineering/M03T07 – OOP – Synthesis/Code Files/inventory.txt', 'r', encoding='utf-8') as inventory_file:
+        with open('./Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt', 'r', encoding='utf-8') as inventory_file:
             next(inventory_file)  # Skip the header line.
             for line in inventory_file:
-                country, code, product, cost, quantity = line.strip()
-                country, code, product, cost, quantity = line.split(',')
+                country, code, product, cost, quantity = line.strip().split(',')
                 shoe = Shoe(country, code, product, float(cost), int(quantity))
                 shoe_list.append(shoe)
     except FileNotFoundError:
@@ -109,11 +108,11 @@ def read_shoes_data():
 
 # Defining update function to write back to inventory.txt
 def update():
-    with open('./Level 1 - Python for Software Engineering/M03T07 – OOP – Synthesis/Code Files/inventory.txt', 'w', encoding='utf-8') as inventory_file:
+    with open('./Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt', 'w', encoding='utf-8') as inventory_file:
         inventory_file.write("Country,Code,Product,Cost,Quantity\n")
         for shoe in shoe_list:
             inventory_file.write(f'''
-        {shoe.country},{shoe.code},{shoe.product},{shoe.cost},{shoe.quantity}\n
+                {shoe.country},{shoe.code},{shoe.product},{shoe.cost},{shoe.quantity}\n
         ''')
     pass
     '''
@@ -240,7 +239,7 @@ def value_per_item():
     for shoe in shoe_list:
         total_value = shoe.cost * shoe.quantity
         print(f'''
-              Stock Value {shoe.product} ({shoe.code}): ${total_value:.2f}
+    Stock Value {shoe.product} ({shoe.code}): ${total_value:.2f}
               ''')
     pass
     '''
