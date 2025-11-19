@@ -84,8 +84,7 @@ def read_shoes_data():
     # Create shoe object with this data
     # Append shoe object into the shoe list
     # Using try-except for error handling
-    # Append to shoe_list[]
-
+    # One line at 81 character length, unable to shorten it.
     try:
         with open('inventory.txt', 'r', encoding='utf-8') as inventory_file:
             next(inventory_file)  # Skip the header line.
@@ -110,10 +109,12 @@ def update():
     for error handling. Remember to skip the first line using your code.
     '''
     # Defining update function to write back to inventory.txt
+    # One line at 108 character length, not able to shorten it;
+    # writing back to class
     with open('inventory.txt', 'w', encoding='utf-8') as inventory_file:
         inventory_file.write("Country,Code,Product,Cost,Quantity\n")
         for shoe in shoe_list:
-            inventory_file.write(f'''{shoe.country},{shoe.code},{shoe.product},{shoe.cost},{shoe.quantity}\n''')
+            inventory_file.write(f"{shoe.country},{shoe.code},{shoe.product},{shoe.cost},{shoe.quantity}\n")
 
 
 def capture_shoes():
