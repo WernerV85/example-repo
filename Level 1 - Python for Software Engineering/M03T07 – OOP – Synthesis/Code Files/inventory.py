@@ -93,7 +93,7 @@ def read_shoes_data():
     #Level 1 - Python for Software Engineering\M03T07 – OOP – Synthesis\Code Files\inventory.txt
 
     try:
-        with open('./Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt', 'r', encoding='utf-8') as inventory_file:
+        with open('./Level 1 - Python for Software Engineering/M03T07 – OOP – Synthesis/Code Files/inventory.txt', 'r', encoding='utf-8') as inventory_file:
             next(inventory_file)  # Skip the header line.
             for line in inventory_file:
                 country, code, product, cost, quantity = line.strip().split(',')
@@ -108,7 +108,7 @@ def read_shoes_data():
 
 # Defining update function to write back to inventory.txt
 def update():
-    with open('./Level 1 - Python for Software Engineering\\M03T07 – OOP – Synthesis\\Code Files\\inventory.txt', 'w', encoding='utf-8') as inventory_file:
+    with open('./Level 1 - Python for Software Engineering/M03T07 – OOP – Synthesis/Code Files/inventory.txt', 'w', encoding='utf-8') as inventory_file:
         inventory_file.write("Country,Code,Product,Cost,Quantity\n")
         for shoe in shoe_list:
             inventory_file.write(f'''
