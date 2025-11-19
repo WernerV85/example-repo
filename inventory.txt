@@ -78,3 +78,6 @@ Country,Code,Product,Cost,Quantity
                 RSA,QWE123,qwerty,50.0,4
 
         
+                RSA2,123QWER,qwerty,45.0,6
+
+        
