@@ -18,7 +18,7 @@ class Shoe:
         self.product = product
         self.cost = cost
         self.quantity = quantity
-        pass
+
 
     def get_cost(self):
         # create empty list shoe_cost for printing purposes
@@ -32,7 +32,7 @@ class Shoe:
             if shoe.product == self.product:
                 shoe_cost.append(shoe.cost)
                 print(shoe_cost)
-        pass
+
         '''
         Add the code to return the cost of the shoe in this method.
         '''
@@ -49,7 +49,7 @@ class Shoe:
             if shoe.product == self.product:
                 shoe_qnt.append(shoe.quantity)
                 print(shoe_qnt)
-        pass
+
         '''
         Add the code to return the quantity of the shoes.
         '''
@@ -62,7 +62,6 @@ class Shoe:
         Product:    {self.product}
         Cost:       {self.cost}
         Quantity:   {self.quantity}''')
-    pass
     '''
         Add a code to returns a string representation of a class.
         '''
@@ -99,7 +98,6 @@ def read_shoes_data():
         print("Error: The file inventory.txt was not found.")
     except Exception as e:
         print(f"An error occurred: {e}")
-    pass
 
 
 # Defining update function to write back to inventory.txt
@@ -110,7 +108,6 @@ def update():
             inventory_file.write(f'''
                 {shoe.country},{shoe.code},{shoe.product},{shoe.cost},{shoe.quantity}\n
         ''')
-    pass
     '''
     This function will open the file inventory.txt
     and read the data from this file, then create a shoes object with this data
@@ -139,8 +136,6 @@ def capture_shoes():
 
     update()
     print(f"\nNew shoe {product} added to inventory.")
-
-    pass
     '''
     This function will allow a user to capture data
     about a shoe and use this data to create a shoe object
@@ -158,7 +153,6 @@ def view_all():
         table.append([shoe.country, shoe.code, shoe.product,
                       shoe.cost, shoe.quantity])
     print(tabulate(table, headers, tablefmt="grid"))
-    pass
     '''
     This function will iterate over the shoes list and
     print the details of the shoes returned from the __str__
@@ -188,7 +182,6 @@ def re_stock():
                 pass
             # Update the inventory.txt file with user input quantity
             update()
-    pass
     '''
     This function will find the shoe object with the lowest quantity,
     which is the shoes that need to be re-stocked. Ask the user if they
@@ -219,10 +212,9 @@ def search_shoe():
             if shoe.product.lower() == product.lower():
                 print(str(shoe))
                 return
-            print("Shoe with this product not found.")
+        print("Shoe with this product not found.")
     else:
         print("Invalid option selected.")
-    pass
     '''
      This function will search for a shoe from the list
      using the shoe code and return this object so that it will be printed.
@@ -237,7 +229,6 @@ def value_per_item():
         print(f'''
     Stock Value {shoe.product} ({shoe.code}): ${total_value:.2f}
               ''')
-    pass
     '''
     This function will calculate the total value for each item.
     Please keep the formula for value in mind: value = cost * quantity.
@@ -252,7 +243,6 @@ def highest_qty():
     print(f'''\nShoe with highest quantity:
           {str(highest_shoe)}
         \nPlease put {highest_shoe.product} on sale!''')
-    pass
 
     '''
     Write code to determine the product with the highest quantity and
@@ -271,6 +261,7 @@ read_shoes_data()
 
 while True:
     print('''
+MAIN MENU:
     Shoe Inventory Management System
         1. Shoe Inventory (all)
         2. Inventory Cost
