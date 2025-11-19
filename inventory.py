@@ -113,9 +113,7 @@ def update():
     with open('inventory.txt', 'w', encoding='utf-8') as inventory_file:
         inventory_file.write("Country,Code,Product,Cost,Quantity\n")
         for shoe in shoe_list:
-            inventory_file.write(f'''
-                {shoe.country},{shoe.code},{shoe.product},{shoe.cost},{shoe.quantity}\n
-        ''')
+            inventory_file.write(f'''{shoe.country},{shoe.code},{shoe.product},{shoe.cost},{shoe.quantity}\n''')
 
 
 def capture_shoes():
