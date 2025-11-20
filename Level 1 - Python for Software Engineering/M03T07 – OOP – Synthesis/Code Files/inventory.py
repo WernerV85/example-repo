@@ -8,7 +8,6 @@ Populated function as stated in task document'''
 
 # Declare class shoes, with attributes found in inventory.txt
 
-
 class Shoe:
     # Initializing attributes for the class
 
@@ -96,6 +95,7 @@ def read_shoes_data():
         print("Error: The file inventory.txt was not found.")
     except Exception as e:
         print(f"An error occurred: {e}")
+        
 
 
 def update():
