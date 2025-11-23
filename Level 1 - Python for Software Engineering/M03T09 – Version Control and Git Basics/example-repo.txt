@@ -1,0 +1,4 @@
+https://github.com/WernerV85/example-repo..git
+
+# I had issues with the first repository I created so deleted it
+# Created a new one and GitHub added the extra . to the path
